@@ -1,0 +1,12 @@
+<litepal>
+    <dbname value="designer"/>
+    <version value="6"/>
+    <list>
+        <mapping class="com.xc.designer.bean.Video"/>
+        <mapping class="com.xc.designer.bean.Document"/>
+        <mapping class="com.xc.designer.bean.Question"/>
+        <mapping class="com.xc.designer.bean.Exam"/>
+        <mapping class="com.xc.designer.bean.LeMessage"/>
+        <mapping class="com.xc.designer.bean.AnMessage"/>
+    </list>
+</litepal>

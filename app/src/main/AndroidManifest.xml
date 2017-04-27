@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xc.designer">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <application
+        android:name="org.litepal.LitePalApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/photo12"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activity.RegisteActivity"/>
+        <activity android:name=".activity.VideoOpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DocumentOpActivity"/>
+        <activity android:name=".activity.UserVideoActivity"/>
+        <activity android:name=".activity.UserinfoActivity"/>
+        <activity android:name=".activity.ExamOpActivity"/>
+        <activity android:name=".activity.LeaveOpActivity"/>
+        <activity android:name=".activity.LeMsgAddActivity"/>
+        <activity android:name=".activity.UserDocActivity"/>
+        <activity android:name=".activity.QueryResultActivity"/>
+        <provider
+            android:authorities="com.xc.designer.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:name="android.support.v4.content.FileProvider">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+    </application>
+
+</manifest>

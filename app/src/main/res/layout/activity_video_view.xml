@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.xc.designer.customView.TitleLayout
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <RelativeLayout
+        android:layout_below="@id/toolbar"
+        android:id="@+id/player_layout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        >
+        <TextView
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/video_name"
+            android:background="@color/black"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+        <VideoView
+            android:layout_below="@id/video_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/video_play_view"
+            android:layout_gravity="center"/>
+
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/video_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/black"
+            android:padding="5dp">
+
+            <ImageButton
+                android:id="@+id/video_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_action_download"
+                android:background="@color/black" />
+            <ImageButton
+                android:id="@+id/video_comment"
+                android:layout_marginRight="10dp"
+                android:scaleType="fitCenter"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/black"
+                android:layout_toLeftOf="@id/video_download"
+                android:src="@drawable/ic_action_monolog_white"/>
+
+            <ImageButton
+                android:id="@+id/video_addlike"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/black"
+                android:layout_toLeftOf="@id/video_comment"
+                android:src="@drawable/ic_action_heart"/>
+
+            <ImageButton
+                android:id="@+id/max_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                android:layout_toLeftOf="@id/video_addlike"
+                android:src="@drawable/ic_action_expand"
+                android:visibility="visible"/>
+            <ImageButton
+                android:id="@+id/old_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                android:layout_toLeftOf="@id/video_addlike"
+                android:src="@drawable/ic_action_collapse"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_below="@id/player_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="4dp"
+                app:contentPadding="10dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/video_play_descr" />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/ansmsg_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/ansmsg_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_comment"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"/>
+
+            <TextView
+                android:id="@+id/hide_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="隐藏"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@color/gray"
+                android:layout_toRightOf="@id/hide_down" />
+
+            <EditText
+                android:id="@+id/comment_content"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/hide_down"
+                android:background="@null"
+                android:hint="请输入评论内容"
+                android:maxLines="1"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/comment_send"
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:text="发送"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
